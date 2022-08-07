@@ -51,8 +51,19 @@ Console.Write($"Максимальное число = {max}");
 // число и выдаёт, является ли число чётным
 // (делится ли оно на два без остатка).
 
+Console.Write("Введи целое число: "); 
+int a = Convert.ToInt32(Console.ReadLine());
 
+int even = a % 2;
 
+if (even == 0)
+{
+    Console.Write($"Ваше число = ({a}) - четное");
+}
+else
+{
+    Console.Write($"Ваше число = ({a}) - НЕ четное");
+}
 
 
 
