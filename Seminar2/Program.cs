@@ -72,3 +72,20 @@ ShowThirdDigit(num);
 // 6 -> да
 // 7 -> да
 // 1 -> нет
+
+/*
+void DayOff(int number)
+{
+    if (number > 0 && number < 8)
+    {
+        if (number == 6 ^ number == 7) Console.WriteLine($"День недели: {number} - Выходной день!");
+        else Console.WriteLine($"День недели: {number} - не выходной день.");
+    }
+    else Console.WriteLine($"{number} - такой день недели не существует!");
+}
+
+Console.Write("Веедите день недели цифрой от 1 до 7: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+DayOff(num);
+*/
