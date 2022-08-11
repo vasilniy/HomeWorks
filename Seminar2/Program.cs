@@ -3,11 +3,20 @@
 // 456 -> 5
 // 782 -> 8
 // 918 -> 1
+/*
+int ShowSecondDigit (int number)
+{
+    number = number / 10;
+    number = number % 10;
+    return number;
+}
 
+Console.Write("Веедите 3-х значное число: ");
 
+int num = Convert.ToInt32(Console.ReadLine());
 
-
-
+Console.Write($"Вторая цифра числа {num} = {ShowSecondDigit(num)}");
+*/
 
 
 // Задача 13: Напишите программу, которая выводит третью цифру
