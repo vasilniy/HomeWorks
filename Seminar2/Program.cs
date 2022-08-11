@@ -24,26 +24,26 @@ Console.Write($"Вторая цифра числа {num} = {ShowSecondDigit(num)
 // 645 -> 5
 // 78 -> третьей цифры нет
 // 32679 -> 6
-/*
+
 int FindThirdDigit(int number)
 {
     int count = 0;
     int num = number;
 
-    while (number > 0)
+    while (number != 0)
     {
         number = number / 10;
         count++;
     }
 
-    while(num >0)
+    while(num != 0)
     {
         if ((count - 3) == 0) number = num % 10;                    
         
         num = num / 10;
         count--;
     }
-
+    if (number < 0) number = number * -1;
     return number;
 }
 
@@ -64,7 +64,7 @@ Console.Write("Веедите число: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
 ShowThirdDigit(num);
-*/
+
 
 
 // Задача 15: Напишите программу, которая принимает на вход цифру,
