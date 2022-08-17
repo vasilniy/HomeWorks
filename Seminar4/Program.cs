@@ -23,8 +23,26 @@ NumberToThePower(A, B);
 // 452 -> 11
 // 82 -> 10
 // 9012 -> 12
+/*
+void SumDigit(int number)
+{
+    int current = 0;
+    int sum = 0;
+    int num = number;
+    while(number > 0)
+    {
+        current = number % 10;
+        number = number /10;
+        sum += current;
+    }
+    Console.WriteLine($"Сумма цифра числа {num} = {sum}");
+}
 
+Console.Write("Введи число: ");
+int num = Convert.ToInt32(Console.ReadLine());
 
+SumDigit(num);
+*/
 
 // Задача 29: Напишите программу, которая задаёт массив из 8
 // элементов и выводит их на экран.
