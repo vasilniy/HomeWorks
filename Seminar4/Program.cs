@@ -48,3 +48,34 @@ SumDigit(num);
 // элементов и выводит их на экран.
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 // 6, 1, 33 -> [6, 1, 33]
+/*
+int[] CreateArray(int number)
+{
+    int[] arr = new int[number];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write($"Введи {i + 1}-й элемент массива: ");
+        arr[i] = Convert.ToInt32(Console.ReadLine());
+    }
+
+    return arr;
+}
+
+void ShowArray(int[] array)
+{
+    Console.Write("[");
+    for(int i = 0; i < array.Length; i++)
+    if (i == array.Length -1) Console.Write($"{array[i]}");
+    else Console.Write($"{array[i]}, ");
+    Console.Write("]");
+    Console.WriteLine();
+}
+
+
+
+Console.Write("Введи размер массива: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+int[] myarray = CreateArray(num);
+ShowArray(myarray);
+*/
