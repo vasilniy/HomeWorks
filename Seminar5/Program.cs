@@ -84,3 +84,48 @@ Console.Write($"Суммма чисел на нечетных позициях =
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между
 // максимальным и минимальным элементов массива.
 // [3 7 22 2 78] -> 76
+/*
+int[] CreateRandomArray(int size, int minValue, int maxValue)
+{
+    int[] newArray = new int[size];
+    for (int i = 0; i < size; i++)
+        newArray[i] = new Random().Next(minValue, maxValue + 1);
+
+    return newArray;
+}
+void ShowArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+        Console.Write(array[i] + " ");
+    Console.WriteLine();
+}
+int FindMaxNumber(int[] array)
+{
+    int max = array[0];
+    for (int i = 0; i < array.Length; i++)
+        if (array[i] > max) max = array[i];
+
+    return max;    
+}
+int FindMinNumber(int[] array)
+{
+    int min = array[0];
+    for (int i = 0; i < array.Length; i++)
+        if (array[i] < min) min = array[i];
+
+    return min;    
+}
+
+Console.Write("Введи размер массива: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи мин. значение элемента массива: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи макс. значение элемента массива: ");
+int max = Convert.ToInt32(Console.ReadLine());
+
+int[] myArray = CreateRandomArray(a, min, max);
+ShowArray(myArray);
+int maxNumber = FindMaxNumber(myArray);
+int minNumber = FindMinNumber(myArray);
+Console.Write($"Разница макс. и мин. элементов массива {maxNumber} - {minNumber} = {maxNumber - minNumber}");
+*/
