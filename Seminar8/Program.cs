@@ -9,9 +9,59 @@
 //    9 5 3 2
 //    8 4 4 2
 
+int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
+{
+    int[,] newArray = new int[rows,columns];
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < columns; j++)
+        newArray[i,j] = new Random().Next(minValue, maxValue + 1);
+
+    return newArray;
+}
+void Show2dArray(int[,] array) // Вывод 2-мерного массива
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        Console.Write(array[i,j] + " ");
+    Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+int[,] OrderElementsDescending(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        //int min = array[i,0];
+        for (int j = 0; j < array.GetLength(1) - 1; j++)
+        {
+            if (array[i,j] < array[i,j+1]) 
+            {   
+                int min = array [i, j];
+                array[i,j] = array[i, j + 1];
+                array[i, j + 1] = min;
+            }
+        }
+    }
+
+    return array;
+}
 
 
 
+Console.Write("Введи количество строк массива: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи количество столбцов массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи минимальное значение элемента массива: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи максимальное значение элемента массива: ");
+int max = Convert.ToInt32(Console.ReadLine()); 
+
+int[,] MyArray = CreateRandom2dArray(m, n, min, max);
+Show2dArray(MyArray);
+OrderElementsDescending(MyArray);
+Show2dArray(MyArray);
 
 
 // Задача 56: Задайте прямоугольный двумерный массив. Напишите программу,
