@@ -147,15 +147,52 @@ else Console.WriteLine("В массиве есть одинковые строк
 // Результирующая матрица будет:
 //        18 20
 //        15 18
+/*
+int[,] MyArray1 = new int[,]
+{
+    {2, 4},
+    {3, 2},
+};
+int[,] MyArray2 = new int[,]
+{
+    {3, 4},
+    {3, 3},
+};
+void Show2dArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i, j] + " ");
+        Console.WriteLine();
+    }    
+}
+int[,] MatrixMultiplication(int[,] arr1, int[,] arr2)
+{
+    int[,] arr3 = new int[arr1.GetLongLength(0), arr1.GetLength(1)];
+    for (int i = 0; i < arr1.GetLongLength(0); i++)
+    {       
+        int sum = 0;
+        for (int x = 0; x < arr1.GetLongLength(1); x++)
+        {            
+            for (int j = 0; j < arr1.GetLongLength(1); j++)
+                sum += arr1[i, j] * arr2[j, x];
+            arr3[i, x] = sum;
+            sum = 0;
+        }
+    }
+    
+    return arr3;
+}
 
-
-
-
-
-
-
-
-
+Console.WriteLine("Даны 2 матрицы: ");
+Show2dArray(MyArray1);
+Console.WriteLine(" и ");
+Show2dArray(MyArray2);
+int[,] MyArray3 = MatrixMultiplication(MyArray1, MyArray2);
+Console.WriteLine("Произведение двух матриц: ");
+Show2dArray(MyArray3);
+*/
 
 // Задача 60. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел.
 // Напишите программу, которая будет построчно выводить массив,
@@ -167,10 +204,42 @@ else Console.WriteLine("В массиве есть одинковые строк
 //                    26(1,0,1) 55(1,1,1)
 
 
+int[,,] CreateRandom3dArray(int dimension1, int dimension2, int dimension3, int minValue, int maxValue)
+{
+    int[,,] newArray = new int[dimension1, dimension2, dimension3];
+    for (int x = 0; x < dimension1; x++)
+        for (int y = 0; y < dimension2; y++)
+            for (int z = 0; z < dimension3; z++)
+                newArray[x, y, z] = new Random().Next(minValue, maxValue + 1);
+
+    return newArray;
+}
+void Show3dArray(int[,,] array)
+{
+    for (int x = 0; x < array.GetLength(0); x++)
+    {
+        for (int y = 0; y < array.GetLength(1); y++)
+            for (int z = 0; z < array.GetLength(2); z++)
+                Console.Write(array[x, y, z] + " ");
+            Console.WriteLine();
+    }
+    Console.WriteLine();
+}
 
 
+Console.Write("Введи первое измерение: ");
+int d1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи второе измерение: ");
+int d2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи третье измерение: ");
+int d3 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи минимальное значение элемента массива: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи максимальное значение элемента массива: ");
+int max = Convert.ToInt32(Console.ReadLine());
 
-
+int[,,] MyArray = CreateRandom3dArray(d1, d2, d3, min, max);
+Show3dArray (MyArray);
 
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
