@@ -203,14 +203,14 @@ Show2dArray(MyArray3);
 //                    27(0,0,1) 90(0,1,1)
 //                    26(1,0,1) 55(1,1,1)
 
-
+/*
 int[,,] CreateRandom3dArray(int dimension1, int dimension2, int dimension3, int minValue, int maxValue)
-{
+{    
     int[,,] newArray = new int[dimension1, dimension2, dimension3];
     for (int x = 0; x < dimension1; x++)
         for (int y = 0; y < dimension2; y++)
             for (int z = 0; z < dimension3; z++)
-                newArray[x, y, z] = new Random().Next(minValue, maxValue + 1);
+                newArray[x, y, z] = new Random().Next(minValue, maxValue + 1) + new Random().Next(1, 3);
 
     return newArray;
 }
@@ -219,13 +219,14 @@ void Show3dArray(int[,,] array)
     for (int x = 0; x < array.GetLength(0); x++)
     {
         for (int y = 0; y < array.GetLength(1); y++)
+        {
             for (int z = 0; z < array.GetLength(2); z++)
-                Console.Write(array[x, y, z] + " ");
+                Console.Write($"{array[x, y, z]}({x},{y},{z}) ");
             Console.WriteLine();
+        }
     }
     Console.WriteLine();
 }
-
 
 Console.Write("Введи первое измерение: ");
 int d1 = Convert.ToInt32(Console.ReadLine());
@@ -233,13 +234,11 @@ Console.Write("Введи второе измерение: ");
 int d2 = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введи третье измерение: ");
 int d3 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введи минимальное значение элемента массива: ");
-int min = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введи максимальное значение элемента массива: ");
-int max = Convert.ToInt32(Console.ReadLine());
 
-int[,,] MyArray = CreateRandom3dArray(d1, d2, d3, min, max);
-Show3dArray (MyArray);
+int[,,] MyArray = CreateRandom3dArray(d1, d2, d3, 10, 96);
+Show3dArray(MyArray);
+*/
+
 
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
