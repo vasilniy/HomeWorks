@@ -8,7 +8,7 @@
 //    7 4 2 1
 //    9 5 3 2
 //    8 4 4 2
-
+/*
 int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
 {
     int[,] newArray = new int[rows, columns];
@@ -62,7 +62,7 @@ int[,] MyArray = CreateRandom2dArray(m, n, min, max);
 Show2dArray(MyArray);
 OrderElementsDescending(MyArray);
 Show2dArray(MyArray);
-
+*/
 
 // Задача 56: Задайте прямоугольный двумерный массив. Напишите программу,
 // которая будет находить строку с наименьшей суммой элементов.
@@ -76,13 +76,68 @@ Show2dArray(MyArray);
 // Программа считает сумму элементов в каждой строке и выдаёт
 // номер строки с наименьшей суммой элементов: 1 строка
 
+/*
+int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
+{
+    int[,] newArray = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < columns; j++)
+            newArray[i, j] = new Random().Next(minValue, maxValue + 1);
 
+    return newArray;
+}
+void Show2dArray(int[,] array) // Вывод 2-мерного массива
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i, j] + " ");
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+int FindMinRowSum(int[,] array)
+{
+    int rowMin = 0;
+    int rowSum = 0;
+    for (int j = 0; j < array.GetLength(1); j++)
+        rowSum += array[0, j];
+        Console.WriteLine($"{1} сумма строки  = {rowSum}");
+    for (int i = 1; i < array.GetLength(0); i++)
+    {
+        int summ = 0;
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            summ += array[i, j];
+        }
+        Console.WriteLine($"{i + 1} сумма строки  = {summ}");
+        if (summ < rowSum)
+        {
+            rowMin = i;
+            rowSum = summ;
+        }
+        else 
+            if (summ == rowSum) rowMin = -1;
+    }
 
+    return rowMin;
+}
 
+Console.Write("Введи количество строк массива: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи количество столбцов массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи минимальное значение элемента массива: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи максимальное значение элемента массива: ");
+int max = Convert.ToInt32(Console.ReadLine());
 
-
-
-
+int[,] MyArray = CreateRandom2dArray(m, n, min, max);
+Show2dArray(MyArray);
+int row = FindMinRowSum(MyArray);
+if (row != -1) Console.WriteLine($"Строка с минимальной суммой элементов = {row + 1}");
+else Console.WriteLine("В массиве есть одинковые строки с минимальной суммой");
+*/
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет
 // находить произведение двух матриц.
