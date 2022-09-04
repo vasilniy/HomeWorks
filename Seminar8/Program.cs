@@ -247,5 +247,81 @@ Show3dArray(MyArray);
 //                        11 16 15 06
 //                        10 09 08 07
 
+int[,] CreateFillArrayBySpiral(int rows, int columns)
+{
+    int[,] array = new int[rows, columns];
+    int fill = 0;
+    //int increas = rows * columns;
+    int i = 0;
+    int j = 0;
+    int rows2 = 0;
+    int columns2 = 0;
+        while(j < columns)
+        {
+            array[i, j] = fill + 1;
+            fill++;
+            j++;            
+        }
+        i++;
+        j--;
+        columns--;
+        rows2 = i;
+        //Console.WriteLine($"fill = {fill}, rows = {rows}, columns = {columns}, j = {j}, i = {i}");
+        
+        while (i < rows)
+        {
+            array[i, j] = fill + 1;
+            //Console.Write(array[i, j]+ " ");
+            //Console.WriteLine($"fill = {fill}, j = {j}, i = {i}");
+            fill++;
+            i++;    
+        }
+        j--;
+        i--; 
+        rows--;               
+        columns2 = j;
+        //Console.WriteLine($"fill = {fill}, rows = {rows}, columns = {columns}, j = {j}, i = {i}");
+        
+        while (j > columns2 - columns)
+        {
+            array[i, j] = fill + 1;
+            //Console.Write(array[i, j]+ " ");            
+            fill++;
+            j--;
+        }
+        i--;
+        j++;
+        rows--;
+
+        while (i > rows2 - 1)
+        {
+            array[i, j] = fill + 1;
+            fill++;
+            i--;
+        }
+        j++;
+        i++;
+        //columns--;
+    Console.WriteLine($"fill = {fill}, rows = {rows}, columns = {columns}, j = {j}, i = {i}");
+    
+    return array;
+}
+void Show2dArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i, j] + " ");
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
 
 
+Console.Write("Введи количество строк массива: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введи количество столбцов массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+int[,] MyArray = CreateFillArrayBySpiral(m, n);
+Show2dArray(MyArray);
