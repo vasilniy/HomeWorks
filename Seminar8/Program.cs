@@ -206,6 +206,23 @@ Show2dArray(MyArray3);
 //                    27(0,0,1) 90(0,1,1)
 //                    26(1,0,1) 55(1,1,1)
 
+int [] ArrayOfUniqueNumbers(int size)
+{
+    int[] array = new int[size];
+    for(int i = 0; i < size; i++)
+    {
+        array[i] = new Random().Next(10, 100);
+    }
+
+
+    return array;
+}
+void ShowArray(int[] array)
+{
+    for(int i = 0; i < array.Length; i++)
+        Console.Write(array[i] + " ");
+    Console.WriteLine();
+}
 /*
 int[,,] CreateRandom3dArray(int dimension1, int dimension2, int dimension3, int minValue, int maxValue)
 {    
@@ -238,10 +255,13 @@ int d2 = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введи третье измерение: ");
 int d3 = Convert.ToInt32(Console.ReadLine());
 
-int[,,] MyArray = CreateRandom3dArray(d1, d2, d3, 10, 96);
-Show3dArray(MyArray);
+//int[,,] MyArray = CreateRandom3dArray(d1, d2, d3, 10, 96);
+//Show3dArray(MyArray);
 */
 
+Console.Write("Введи первое измерение: ");
+int s = Convert.ToInt32(Console.ReadLine());
+ShowArray((ArrayOfUniqueNumbers(s)));
 
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
