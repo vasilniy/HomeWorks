@@ -205,32 +205,53 @@ Show2dArray(MyArray3);
 //                    34(1,0,0) 41(1,1,0)
 //                    27(0,0,1) 90(0,1,1)
 //                    26(1,0,1) 55(1,1,1)
-
-int [] ArrayOfUniqueNumbers(int size)
+/*
+int[] ArrayOfUniqueNumbers(int size)
 {
     int[] array = new int[size];
-    for(int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
         array[i] = new Random().Next(10, 100);
+        // Console.Write($"{array[i]} ");
     }
+    // Console.WriteLine();
 
+    for (int i = 0; i < size; i++)
+    {
+        int minPosition = i;
+        for (int j = 0; j < size; j++)
+        {
+            if (j != minPosition)
+            {
+                if (array[j] == array[minPosition])
+                {
+                    array[j] = new Random().Next(10, 100);
+                    i = 0;
+                }
+            }
+        }
+    }
 
     return array;
 }
 void ShowArray(int[] array)
 {
-    for(int i = 0; i < array.Length; i++)
+    Console.Write("Создан массив с неповторяющимися числами: ");
+    for (int i = 0; i < array.Length; i++)
         Console.Write(array[i] + " ");
     Console.WriteLine();
 }
-/*
-int[,,] CreateRandom3dArray(int dimension1, int dimension2, int dimension3, int minValue, int maxValue)
-{    
+int[,,] CreateRandom3dArray(int dimension1, int dimension2, int dimension3, int[] array)
+{
     int[,,] newArray = new int[dimension1, dimension2, dimension3];
+    int index = array.Length - 1;
     for (int x = 0; x < dimension1; x++)
         for (int y = 0; y < dimension2; y++)
             for (int z = 0; z < dimension3; z++)
-                newArray[x, y, z] = new Random().Next(minValue, maxValue + 1) + new Random().Next(1, 3);
+            {
+                newArray[x, y, z] = array[index];
+                index--;
+            }
 
     return newArray;
 }
@@ -255,13 +276,14 @@ int d2 = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введи третье измерение: ");
 int d3 = Convert.ToInt32(Console.ReadLine());
 
-//int[,,] MyArray = CreateRandom3dArray(d1, d2, d3, 10, 96);
-//Show3dArray(MyArray);
+int s = d1 * d2 * d3;
+int[] firstArray = ArrayOfUniqueNumbers(s);
+ShowArray(firstArray);
+Console.WriteLine();
+int[,,] MyArray = CreateRandom3dArray(d1, d2, d3, firstArray);
+Console.WriteLine("Числа перенесены в 3хмерный массив: ");
+Show3dArray(MyArray);
 */
-
-Console.Write("Введи первое измерение: ");
-int s = Convert.ToInt32(Console.ReadLine());
-ShowArray((ArrayOfUniqueNumbers(s)));
 
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
@@ -270,6 +292,8 @@ ShowArray((ArrayOfUniqueNumbers(s)));
 //                        11 16 15 06
 //                        10 09 08 07
 /*
+// Здесь попытка что-то решить. Пока не осилил.
+
 int[,] CreateFillArrayBySpiral(int rows, int columns)
 {
     int[,] array = new int[rows, columns];
